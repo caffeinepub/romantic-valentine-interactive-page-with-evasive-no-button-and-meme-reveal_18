@@ -1,0 +1,105 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Valentine single-screen interactive page (evasive No + meme reveal)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build a single-screen Valentine prompt UI with romantic pink/white theme and exactly two choices (Yes/No).",
+      "acceptanceCriteria": [
+        "The page shows the question text “Will you be my Valentine?” prominently.",
+        "The UI uses a consistent romantic pink/white palette (background, accents, buttons, typography).",
+        "There are exactly two primary choices visible: “Yes” and “No”.",
+        "All user-facing text is in English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the single-screen Valentine UI with prominent question text and two large primary actions (“Yes”, “No”) arranged for a romantic layout. Use the shadcn-ui Button component to provide accessible, consistent button styling/interaction. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Add global styling (and/or Tailwind layer usage if applicable) to enforce a consistent romantic pink/white palette, typography, and background treatment for the Valentine screen."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Make the “No” button evade hover/touch attempts by relocating within the visible container/viewport while remaining on-screen.",
+      "acceptanceCriteria": [
+        "On desktop, when the pointer approaches/enters the “No” button area, the button relocates to a new position within the visible viewport/container.",
+        "On mobile/touch devices, attempting to tap the “No” button causes it to relocate before a successful click/tap is registered.",
+        "The “No” button never moves off-screen; it remains visible but difficult/impossible to press.",
+        "The “Yes” button remains stable and clickable at all times."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Implement evasive behavior for the “No” button using pointer/mouse + touch-friendly events (e.g., pointer enter/move and pointer down/touch start) that reposition the button within measured container bounds so it stays visible and effectively unclickable, while keeping the “Yes” button stable and clickable. Use the shadcn-ui Button component for the buttons. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "On “Yes” click, transition the single-page UI to a success state showing “Good choice” and the meme image.",
+      "acceptanceCriteria": [
+        "Clicking “Yes” reliably triggers the post-Yes state.",
+        "The post-Yes state displays the text “Good choice”.",
+        "The post-Yes state displays the specified meme image.",
+        "The experience remains a single-page flow (no full page reload required)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a local UI state machine (pre-Yes vs post-Yes) so clicking “Yes” transitions to a success view that renders the “Good choice” text and displays the static meme image without navigation or full page reload."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Include the generated meme image as a public static asset and render it in the success state.",
+      "acceptanceCriteria": [
+        "The generated image exists at frontend/public/assets/generated/valentine-good-choice-meme.dim_900x900.png (or equivalent static path under public).",
+        "The frontend references the image as a static asset (not fetched from the backend).",
+        "The image renders correctly in the “Yes” success state on Android Chrome."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/valentine-good-choice-meme.dim_900x900.png",
+          "operation": "create",
+          "description": "Add the required generated meme image asset at exactly frontend/public/assets/generated/valentine-good-choice-meme.dim_900x900.png for static serving."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the success-state UI to reference and render the static asset located at frontend/public/assets/generated/valentine-good-choice-meme.dim_900x900.png (served from public) so it displays correctly on Android Chrome."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Ensure responsive, touch-friendly interaction and layout on Android Chrome.",
+      "acceptanceCriteria": [
+        "Layout adapts to small screens without overlapping or off-screen primary content.",
+        "Buttons are large enough for touch interaction and have clear active/pressed feedback.",
+        "The evasive “No” interaction works on Android Chrome (touch/pointer events)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Make the layout responsive (centered content, safe spacing, scalable typography) and ensure controls are touch-friendly (large hit areas, visible pressed/active feedback). Confirm the evasive “No” behavior is driven by pointer/touch-compatible handlers for Android Chrome. Use the shadcn-ui Button component for consistent focus/pressed states. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Adjust global styles as needed to support mobile viewport sizing, avoid overflow issues, and maintain the pink/white romantic theme consistently across screen sizes."
+        }
+      ]
+    }
+  ]
+}

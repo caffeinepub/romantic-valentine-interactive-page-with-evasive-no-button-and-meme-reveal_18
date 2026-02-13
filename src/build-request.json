@@ -1,0 +1,113 @@
+{
+  "kind": "build_request",
+  "title": "Romantic Valentine interactive page with evasive No button and meme reveal",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a single-screen romantic Valentine webpage that asks the question “Will you be my Valentine?” with two large options: “Yes” and “No”, using a pink-and-white romantic theme.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "create an intrective web page ... ask her to be my valentine ... themed romantically with pink and white colour theme"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The page shows the question text “Will you be my Valentine?” prominently.",
+        "The UI uses a consistent romantic pink/white palette (background, accents, buttons, typography).",
+        "There are exactly two primary choices visible: “Yes” and “No”.",
+        "All user-facing text is in English."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement evasive behavior for the “No” button so it moves away when the user tries to hover or otherwise interact with it, making it effectively unclickable on both desktop (mouse) and Android Chrome (touch).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "when she hovers cursor over no it should move away so she cannot click it forcing her to click on only yes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On desktop, when the pointer approaches/enters the “No” button area, the button relocates to a new position within the visible viewport/container.",
+        "On mobile/touch devices, attempting to tap the “No” button causes it to relocate before a successful click/tap is registered.",
+        "The “No” button never moves off-screen; it remains visible but difficult/impossible to press.",
+        "The “Yes” button remains stable and clickable at all times."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "When the user clicks “Yes”, transition the UI to show a meme image along with the text “Good choice”.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "when she clicks yes show her a meme image telling her  \"good choice\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking “Yes” reliably triggers the post-Yes state.",
+        "The post-Yes state displays the text “Good choice”.",
+        "The post-Yes state displays the specified meme image.",
+        "The experience remains a single-page flow (no full page reload required)."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Add the required generated meme image as a static asset under frontend/public/assets/generated and render it in the “Yes” success state.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The generated image exists at frontend/public/assets/generated/valentine-good-choice-meme.dim_900x900.png (or equivalent static path under public).",
+        "The frontend references the image as a static asset (not fetched from the backend).",
+        "The image renders correctly in the “Yes” success state on Android Chrome."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Ensure the Valentine page is fully interactive and usable on Android Chrome with responsive layout and touch-friendly controls.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "be fully intrective ... so that i can run it on androids using chrome"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Layout adapts to small screens without overlapping or off-screen primary content.",
+        "Buttons are large enough for touch interaction and have clear active/pressed feedback.",
+        "The evasive “No” interaction works on Android Chrome (touch/pointer events)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not add or require third-party authentication providers (only Internet Identity is supported, but not needed for this page).",
+    "Do not introduce external databases or non-supported backend technologies.",
+    "Keep backend changes unnecessary; implement as a frontend-only experience unless strictly required."
+  ],
+  "nonGoals": [
+    "User accounts, login, or Internet Identity integration.",
+    "Storing user data or analytics.",
+    "Multi-page routing or additional app features beyond asking to be a Valentine and showing the success meme."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Square meme-style romantic image with bold readable text “Good choice” (valentine-good-choice-meme.dim_900x900.png)"
+    ],
+    "edits": []
+  }
+}

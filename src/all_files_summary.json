@@ -1,0 +1,15 @@
+{
+  "backend/main.mo": "Empty Motoko actor with no backend logic.",
+  "feature_evidence.json": "Structured report mapping implemented Valentine features to source files and test IDs.",
+  "frontend-file-summaries.txt": "Prewritten summaries describing key frontend files and their roles in the Valentine app.",
+  "frontend/index.css": "Base Tailwind variables and dark-mode theme tokens for general app styling.",
+  "frontend/index.html": "Minimal HTML shell mounting the React app via main.tsx.",
+  "frontend/src/App.tsx": "Main interactive Valentine UI with evasive No button behavior and meme reveal on Yes click.",
+  "frontend/src/hooks/useActor.ts": "React hook for creating and refreshing a backend actor tied to Internet Identity state.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Full Internet Identity context provider and hook handling login, logout, and identity persistence.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder module indicating no backend queries are used.",
+  "frontend/src/index.css": "Romantic pink-themed Tailwind variables plus fade and float animations for the Valentine UI.",
+  "frontend/src/main.tsx": "React entry point setting up QueryClient, InternetIdentityProvider, and rendering App.",
+  "frontend/tailwind.config.js": "TailwindCSS config enabling dark mode, plugin integrations, custom color palette, animations, and extended theme settings for the frontend.",
+  "project_state.json": "Project metadata describing the Valentine web app’s features, requirements, state version, and pending feature requests."
+}

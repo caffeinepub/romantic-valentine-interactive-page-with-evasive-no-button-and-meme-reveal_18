@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Interactive romantic Valentine web page (HTML/CSS/JavaScript) for Android Chrome: ask 'Will you be my valentine?' with Yes/No buttons, evasive No on hover, and a meme image with 'good choice' shown after Yes.",
+  "architectural_notes": [
+    "Single-page HTML/CSS/JS web app designed to run in mobile Chrome on Android."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Square meme-style romantic image with bold readable text “Good choice” (valentine-good-choice-meme.dim_900x900.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-single-screen-romantic-valentine-webpage-that-asks-the-question-will-you-be-my-valentine-with-two-large-options-yes-and-no-using-a-pink-and-white-romantic-theme",
+      "title": "Create a single-screen romantic Valentine webpage that asks the question “Will you be my Valentine?” with two large options: “Yes” and “No”, using a pink-and-white romantic theme.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-evasive-behavior-for-the-no-button-so-it-moves-away-when-the-user-tries-to-hover-or-otherwise-interact-with-it-making-it-effectively-unclickable-on-both-desktop-mouse-and-android-chrome-touch",
+      "title": "Implement evasive behavior for the “No” button so it moves away when the user tries to hover or otherwise interact with it, making it effectively unclickable on both desktop (mouse) and Android Chrome (touch).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-when-the-user-clicks-yes-transition-the-ui-to-show-a-meme-image-along-with-the-text-good-choice",
+      "title": "When the user clicks “Yes”, transition the UI to show a meme image along with the text “Good choice”.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-required-generated-meme-image-as-a-static-asset-under-frontend-public-assets-generated-and-render-it-in-the-yes-success-state",
+      "title": "Add the required generated meme image as a static asset under frontend/public/assets/generated and render it in the “Yes” success state.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-valentine-page-is-fully-interactive-and-usable-on-android-chrome-with-responsive-layout-and-touch-friendly-controls",
+      "title": "Ensure the Valentine page is fully interactive and usable on Android Chrome with responsive layout and touch-friendly controls.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Build a simple romantic-themed interactive Valentine webpage with Yes/No options; No button moves away on hover; Yes click shows a meme image with text 'good choice' (pink/white theme, runnable on Android Chrome).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Romantic Valentine interactive page with evasive No button and meme reveal",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
